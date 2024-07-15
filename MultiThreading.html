@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multithreading in Java - Java Programming Tutorials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #444;
+            overflow-x: auto;
+        }
+        .thread-methods {
+            margin-top: 20px;
+        }
+        .thread-methods h3 {
+            margin-bottom: 10px;
+        }
+        .thread-methods pre {
+            margin-bottom: 20px;
+        }
+        .thread-lifecycle {
+            margin-top: 20px;
+        }
+        .thread-lifecycle h3 {
+            margin-bottom: 10px;
+        }
+        .thread-lifecycle ul {
+            margin-left: 20px;
+        }
+        .thread-lifecycle li {
+            margin-bottom: 10px;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Tutorials</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>Multithreading in Java</h2>
+            
+            <section id="what-is-thread">
+                <h3>What is a Thread?</h3>
+                <p>A thread is the smallest unit of execution within a process. Threads allow concurrent execution of tasks within the same program, enabling better performance and responsiveness.</p>
+            </section>
+            
+            <section id="what-is-multithreading">
+                <h3>What is Multithreading?</h3>
+                <p>Multithreading is a programming concept where multiple threads execute independently within the same program, sharing the same resources such as memory space.</p>
+            </section>
+            
+            <section id="thread-declaration">
+                <h3>How to Declare Threads?</h3>
+                <p>In Java, there are two main ways to create threads:</p>
+                <pre>
+<code>
+// Method 1: Extending the Thread class
+class MyThread extends Thread {
+    public void run() {
+        // Thread logic goes here
+    }
+}
+
+// Method 2: Implementing the Runnable interface
+class MyRunnable implements Runnable {
+    public void run() {
+        // Thread logic goes here
+    }
+}
+
+public class ThreadDeclarationExample {
+    public static void main(String[] args) {
+        // Using method 1: Extending Thread class
+        MyThread thread1 = new MyThread();
+        thread1.start();
+        
+        // Using method 2: Implementing Runnable interface
+        Thread thread2 = new Thread(new MyRunnable());
+        thread2.start();
+    }
+}
+</code>
+</pre>
+            </section>
+            
+            <section id="difference-thread-process">
+                <h3>Thread vs. Process</h3>
+                <p>The key differences between threads and processes are:</p>
+                <ul>
+                    <li>Threads share the same memory space, while processes have independent memory spaces.</li>
+                    <li>Threads are lightweight compared to processes, making context switching faster.</li>
+                    <li>Threads within the same process can communicate directly, while processes typically communicate via inter-process communication mechanisms.</li>
+                </ul>
+            </section>
+            
+            <section class="thread-methods">
+                <h3>Methods Related to Threads</h3>
+                <p>Java provides several methods to manage threads effectively:</p>
+                <ul>
+                    <li><strong>sleep():</strong> Suspends the execution of the current thread for a specified period.</li>
+                    <li><strong>join():</strong> Waits for a thread to terminate.</li>
+                    <li><strong>wait() and notify():</strong> Allows threads to communicate and synchronize their actions.</li>
+                </ul>
+                <pre>
+<code>
+class ThreadMethodsExample {
+    public static void main(String[] args) {
+        Thread thread = new Thread(() -> {
+            try {
+                System.out.println("Thread is running...");
+                Thread.sleep(2000); // Sleeping for 2 seconds
+                System.out.println("Thread woke up.");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+        thread.start();
+
+        try {
+            thread.join(); // Wait for the thread to finish
+            System.out.println("Thread execution completed.");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+            </section>
+            
+            <section class="thread-lifecycle">
+                <h3>Thread Lifecycle</h3>
+                <p>A thread in Java goes through several states during its lifecycle:</p>
+                <ul>
+                    <li><strong>New:</strong> The thread is in a new state before starting.</li>
+                    <li><strong>Runnable:</strong> The thread is ready to run and waiting for the CPU.</li>
+                    <li><strong>Running:</strong> The thread is executing its task.</li>
+                    <li><strong>Blocked:</strong> The thread is blocked waiting for a monitor lock.</li>
+                    <li><strong>Terminated:</strong> The thread has completed execution.</li>
+                </ul>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>

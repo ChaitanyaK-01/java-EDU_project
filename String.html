@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings in Java - Java Programming Tutorials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #444;
+            overflow-x: auto;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Tutorials</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>Strings in Java</h2>
+            
+            <section id="string-information">
+                <h3>What is String?</h3>
+                <p>In Java, a String is a sequence of characters. Strings are used to store and manipulate text-based data.</p>
+            </section>
+            
+            <section id="string-declaration">
+                <h3>Ways to Declare String</h3>
+                <p>In Java, there are two main ways to declare a String:</p>
+                <pre>
+<code>
+// Method 1: Using String literal
+String str1 = "Hello";
+
+// Method 2: Using String object
+String str2 = new String("World");
+</code>
+</pre>
+            </section>
+            
+            <section id="string-immutable">
+                <h3>Why String is Immutable?</h3>
+                <p>In Java, String objects are immutable, meaning once a String object is created, its content cannot be changed. This ensures thread safety, caching, and security.</p>
+            </section>
+            
+            <section id="make-string-mutable">
+                <h3>How to Make String Mutable?</h3>
+                <p>To work with mutable strings in Java, you can use the `StringBuilder` or `StringBuffer` classes, which provide mutable sequences of characters.</p>
+                <pre>
+<code>
+// Example using StringBuilder
+StringBuilder mutableStr = new StringBuilder("Java");
+mutableStr.append(" Programming");
+System.out.println(mutableStr.toString()); // Outputs: Java Programming
+</code>
+</pre>
+            </section>
+            
+            <section id="string-methods">
+                <h3>Methods for String Manipulation</h3>
+                <p>Here are some common methods used to perform actions on strings:</p>
+                <ul>
+                    <li><strong>Reversing String:</strong> Use `StringBuilder.reverse()` method.
+                        <pre><code>
+String str = "Hello";
+StringBuilder reversed = new StringBuilder(str).reverse();
+System.out.println(reversed.toString()); // Outputs: olleH
+                        </code></pre>
+                    </li>
+                    <li><strong>Finding Last Element of String:</strong> Use `charAt(length() - 1)` method.
+                        <pre><code>
+String str = "Java";
+char lastChar = str.charAt(str.length() - 1);
+System.out.println("Last character: " + lastChar); // Outputs: Last character: a
+                        </code></pre>
+                    </li>
+                    <li><strong>Finding First Element of String:</strong> Use `charAt(0)` method.
+                        <pre><code>
+String str = "Java";
+char firstChar = str.charAt(0);
+System.out.println("First character: " + firstChar); // Outputs: First character: J
+                        </code></pre>
+                    </li>
+                    <li><strong>Length of String:</strong> Use `length()` method.
+                        <pre><code>
+String str = "Java";
+int length = str.length();
+System.out.println("Length of the string: " + length); // Outputs: Length of the string: 4
+                        </code></pre>
+                    </li>
+                    <li><strong>Comparing Length of Two Strings:</strong> Use `length()` method and compare.
+                        <pre><code>
+String str1 = "Java";
+String str2 = "Python";
+if (str1.length() == str2.length()) {
+    System.out.println("Strings have the same length.");
+} else {
+    System.out.println("Strings have different lengths.");
+}
+                        </code></pre>
+                    </li>
+                    <li><strong>Comparing Content of Two Strings:</strong> Use `equals()` or `equalsIgnoreCase()` method.
+                        <pre><code>
+String str1 = "Java";
+String str2 = "java";
+if (str1.equalsIgnoreCase(str2)) {
+    System.out.println("Strings are equal ignoring case.");
+} else {
+    System.out.println("Strings are not equal ignoring case.");
+}
+                        </code></pre>
+                    </li>
+                </ul>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>

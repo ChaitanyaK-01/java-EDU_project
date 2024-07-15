@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception Handling in Java - Java Programming Tutorials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #444;
+            overflow-x: auto;
+        }
+        .exception-type {
+            margin-top: 20px;
+        }
+        .exception-type h3 {
+            margin-bottom: 10px;
+        }
+        .exception-type pre {
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Tutorials</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>Exception Handling in Java</h2>
+            
+            <section id="what-is-exception">
+                <h3>What is an Exception?</h3>
+                <p>An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program's instructions. It can occur due to various reasons such as incorrect user input, hardware failure, or programming errors.</p>
+            </section>
+            
+            <section id="exception-handling">
+                <h3>What is Exception Handling?</h3>
+                <p>Exception handling is a mechanism to handle runtime errors in a controlled manner. It enables a program to handle exceptional conditions gracefully, preventing abrupt termination.</p>
+            </section>
+            
+            <section id="checked-exceptions">
+                <h3>Checked Exceptions</h3>
+                <p>Checked exceptions are exceptions that are checked at compile-time. They are typically recoverable and should be handled by the programmer.</p>
+                <div class="exception-type">
+                    <h3>Types of Checked Exceptions</h3>
+                    <ul>
+                        <li>
+                            <h4>IOException</h4>
+                            <p>IOException is thrown when an I/O operation fails or is interrupted, which can occur when reading from or writing to files, streams, or other sources.</p>
+                            <pre>
+<code>
+import java.io.FileReader;
+import java.io.IOException;
+
+public class IOExceptionExample {
+    public static void main(String[] args) {
+        try {
+            FileReader file = new FileReader("example.txt");
+            // Perform file operations
+        } catch (IOException e) {
+            System.out.println("IOException occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+                        </li>
+                        <li>
+                            <h4>SQLException</h4>
+                            <p>SQLException is thrown when there is an error in database access or SQL query execution.</p>
+                            <pre>
+<code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class SQLExceptionExample {
+    public static void main(String[] args) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database", "username", "password");
+            // Perform database operations
+        } catch (SQLException e) {
+            System.out.println("SQLException occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+                        </li>
+                        <li>
+                            <h4>ClassNotFoundException</h4>
+                            <p>ClassNotFoundException is thrown when an application tries to load a class through its string name using methods like `Class.forName()`, but the specified class cannot be found in the classpath.</p>
+                            <pre>
+<code>
+public class ClassNotFoundExceptionExample {
+    public static void main(String[] args) {
+        try {
+            Class.forName("com.example.NonExistingClass");
+        } catch (ClassNotFoundException e) {
+            System.out.println("ClassNotFoundException occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="unchecked-exceptions">
+                <h3>Unchecked Exceptions (RuntimeExceptions)</h3>
+                <p>Unchecked exceptions, also known as runtime exceptions, are not checked at compile-time. They typically occur due to programming bugs and are not expected to be handled.</p>
+                <div class="exception-type">
+                    <h3>Types of Unchecked Exceptions</h3>
+                    <ul>
+                        <li>
+                            <h4>NullPointerException</h4>
+                            <p>NullPointerException is thrown when a program attempts to use an object reference that has not been initialized (null).</p>
+                            <pre>
+<code>
+public class NullPointerExceptionExample {
+    public static void main(String[] args) {
+        String str = null;
+        try {
+            int length = str.length(); // This will throw NullPointerException
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException occurred!");
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+                        </li>
+                        <li>
+                            <h4>ArrayIndexOutOfBoundsException</h4>
+                            <p>ArrayIndexOutOfBoundsException is thrown when attempting to access an array element at an invalid index.</p>
+                            <pre>
+<code>
+public class ArrayIndexOutOfBoundsExceptionExample {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        try {
+            int value = arr[5]; // This will throw ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException occurred!");
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+                        </li>
+                        <li>
+                            <h4>ArithmeticException</h4>
+                            <p>ArithmeticException is thrown when an exceptional arithmetic condition occurs, such as divide by zero.</p>
+                            <pre>
+<code>
+public class ArithmeticExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; // This will throw ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException occurred!");
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+                        </li>
+                        <li>
+                            <h4>NumberFormatException</h4>
+                            <p>NumberFormatException is thrown when an attempt is made to convert a string into a numeric format, but the string does not have the appropriate format.</p>
+                            <pre>
+<code>
+public class NumberFormatExceptionExample {
+    public static void main(String[] args) {
+        String str = "abc";
+        try {
+            int num = Integer.parseInt(str); // This will throw NumberFormatException
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>

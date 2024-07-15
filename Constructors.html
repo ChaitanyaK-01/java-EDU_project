@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors in Java - Java Programming Tutorials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #444;
+            overflow-x: auto;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Tutorials</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>Constructors in Java</h2>
+            
+            <section id="constructor-information">
+                <h3>What is Constructor?</h3>
+                <p>In Java, a constructor is a special method that is automatically called when an object of a class is instantiated. It initializes the object and allocates memory for it.</p>
+            </section>
+            
+            <section id="constructor-types">
+                <h3>Types of Constructors</h3>
+                <ul>
+                    <li><strong>Default Constructor:</strong> Constructor with no parameters provided by the compiler if no other constructor is defined.</li>
+                    <li><strong>Parameterized Constructor:</strong> Constructor with parameters to initialize the object with specific values.</li>
+                    <li><strong>Copy Constructor:</strong> Constructor that initializes an object by copying values from another object of the same class.</li>
+                    <li><strong>Constructor Overloading:</strong> Having multiple constructors within the same class with different parameters.</li>
+                </ul>
+            </section>
+            
+            <section id="constructor-ways-to-define">
+                <h3>Ways to Define Constructors</h3>
+                <p>Constructors in Java can be defined in the following ways:</p>
+                <pre>
+<code>
+// Method 1: Default Constructor
+public class MyClass {
+    public MyClass() {
+        // Constructor code
+    }
+}
+
+// Method 2: Parameterized Constructor
+public class MyClass {
+    private int value;
+
+    public MyClass(int v) {
+        this.value = v;
+    }
+}
+
+// Method 3: Copy Constructor
+public class MyClass {
+    private int value;
+
+    public MyClass(MyClass original) {
+        this.value = original.value;
+    }
+}
+</code>
+</pre>
+            </section>
+            
+            <section id="constructor-examples">
+                <h3>Constructor Examples</h3>
+                <p>Here are some examples of constructors in Java:</p>
+                <pre>
+<code>
+// Example 1: Default Constructor
+public class Car {
+    private String model;
+    private String color;
+
+    // Default Constructor
+    public Car() {
+        this.model = "Unknown";
+        this.color = "Unspecified";
+    }
+}
+
+// Example 2: Parameterized Constructor
+public class Employee {
+    private String name;
+    private int age;
+
+    // Parameterized Constructor
+    public Employee(String n, int a) {
+        this.name = n;
+        this.age = a;
+    }
+}
+
+// Example 3: Copy Constructor
+public class Book {
+    private String title;
+    private String author;
+
+    // Copy Constructor
+    public Book(Book original) {
+        this.title = original.title;
+        this.author = original.author;
+    }
+}
+</code>
+</pre>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>

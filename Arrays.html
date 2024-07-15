@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in Java - Java Programming Tutorials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #444;
+            overflow-x: auto;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Tutorials</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>Arrays in Java</h2>
+            
+            <section id="array-information">
+                <h3>What is Array?</h3>
+                <p>In Java, an array is a data structure that stores a fixed-size sequential collection of elements of the same type.</p>
+            </section>
+            
+            <section id="array-benefits">
+                <h3>Benefits of Using Arrays</h3>
+                <ul>
+                    <li>Allows storing multiple values of the same type in a single variable.</li>
+                    <li>Provides random access to elements using index.</li>
+                    <li>Facilitates efficient data manipulation and processing.</li>
+                </ul>
+            </section>
+            
+            <section id="array-drawbacks">
+                <h3>Drawbacks of Using Arrays</h3>
+                <ul>
+                    <li>Fixed size: Arrays have a fixed length that cannot be changed once declared.</li>
+                    <li>Homogeneous elements: Arrays can only store elements of the same data type.</li>
+                    <li>No built-in methods for dynamic operations like resizing.</li>
+                </ul>
+            </section>
+            
+            <section id="array-declaration">
+                <h3>Ways to Declare Arrays</h3>
+                <p>In Java, arrays can be declared using the following methods:</p>
+                <pre>
+<code>
+// Method 1: Declaration with size
+int[] arr1 = new int[5];
+
+// Method 2: Declaration with initialization
+int[] arr2 = {1, 2, 3, 4, 5};
+
+// Method 3: Declaration using 'new' keyword and initializing later
+int[] arr3;
+arr3 = new int[]{10, 20, 30};
+</code>
+</pre>
+            </section>
+            
+            <section id="array-types">
+                <h3>Types of Arrays</h3>
+                <p>Arrays in Java can be categorized into the following types:</p>
+                <ul>
+                    <li><strong>Single-Dimensional Arrays:</strong> Arrays with a single row or column.</li>
+                    <li><strong>Multi-Dimensional Arrays:</strong> Arrays with multiple rows and columns, like 2D or 3D arrays.</li>
+                    <li><strong>Variable Length Arrays (Introduced in Java 5):</strong> Arrays whose length can be determined at runtime.</li>
+                    <li><strong>Arrays of Objects:</strong> Arrays that store references to objects.</li>
+                    <li><strong>Arrays of Arrays (Multi-Dimensional):</strong> Arrays whose elements are themselves arrays.</li>
+                </ul>
+            </section>
+            
+            <section id="array-methods">
+                <h3>Array Manipulation Methods</h3>
+                <p>Here are some common methods used to manipulate arrays:</p>
+                <ul>
+                    <li><strong>Sorting:</strong> Use `Arrays.sort()` method.
+                        <pre><code>
+int[] numbers = {5, 1, 4, 2, 3};
+Arrays.sort(numbers);
+System.out.println(Arrays.toString(numbers)); // Outputs: [1, 2, 3, 4, 5]
+                        </code></pre>
+                    </li>
+                    <li><strong>Searching:</strong> Use `Arrays.binarySearch()` method.
+                        <pre><code>
+int[] numbers = {1, 2, 3, 4, 5};
+int index = Arrays.binarySearch(numbers, 3);
+System.out.println("Index of 3: " + index); // Outputs: Index of 3: 2
+                        </code></pre>
+                    </li>
+                    <li><strong>Copying:</strong> Use `System.arraycopy()` method.
+                        <pre><code>
+int[] source = {1, 2, 3, 4, 5};
+int[] destination = new int[source.length];
+System.arraycopy(source, 0, destination, 0, source.length);
+System.out.println(Arrays.toString(destination)); // Outputs: [1, 2, 3, 4, 5]
+                        </code></pre>
+                    </li>
+                    <li><strong>Comparing:</strong> Use `Arrays.equals()` method.
+                        <pre><code>
+int[] arr1 = {1, 2, 3};
+int[] arr2 = {1, 2, 3};
+boolean isEqual = Arrays.equals(arr1, arr2);
+System.out.println("Arrays are equal: " + isEqual); // Outputs: Arrays are equal: true
+                        </code></pre>
+                    </li>
+                    <li><strong>Filling:</strong> Use `Arrays.fill()` method to fill array elements with a specific value.
+                        <pre><code>
+int[] arr = new int[5];
+Arrays.fill(arr, 10);
+System.out.println(Arrays.toString(arr)); // Outputs: [10, 10, 10, 10, 10]
+                        </code></pre>
+                    </li>
+                    <li><strong>Converting Array to List:</strong> Use `Arrays.asList()` method to convert an array to a List.
+                        <pre><code>
+String[] words = {"apple", "banana", "cherry"};
+List<String> wordList = Arrays.asList(words);
+System.out.println(wordList); // Outputs: [apple, banana, cherry]
+                        </code></pre>
+                    </li>
+                </ul>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>

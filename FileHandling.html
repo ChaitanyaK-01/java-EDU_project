@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling in Java - Java Programming Tutorials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #444;
+            overflow-x: auto;
+        }
+        .file-methods {
+            margin-top: 20px;
+        }
+        .file-methods h3 {
+            margin-bottom: 10px;
+        }
+        .file-methods pre {
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Tutorials</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>File Handling in Java</h2>
+            
+            <section id="what-is-file-handling">
+                <h3>What is File Handling?</h3>
+                <p>File handling in Java refers to reading from and writing to files. It involves using various classes and methods provided by Java to manipulate files stored on disk or other storage devices.</p>
+            </section>
+            
+            <section id="file-handling-classes">
+                <h3>Classes Used in File Handling</h3>
+                <p>Java provides several classes in the `java.io` package for file handling:</p>
+                <ul>
+                    <li><strong>File:</strong> Represents the file and directory pathnames.</li>
+                    <li><strong>FileInputStream and FileOutputStream:</strong> Used for reading from and writing to files, respectively.</li>
+                    <li><strong>BufferedReader and BufferedWriter:</strong> Efficiently read characters from a character-input stream and write characters to a character-output stream, respectively.</li>
+                    <li><strong>Scanner:</strong> Parses primitive types and strings using regular expressions.</li>
+                    <li><strong>RandomAccessFile:</strong> Supports reading from and writing to a file with random access.</li>
+                </ul>
+            </section>
+            
+            <section class="file-methods">
+                <h3>Methods Related to File Handling</h3>
+                <ul>
+                    <li><strong>Checking if a File Exists:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+
+public class FileExistenceExample {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        if (file.exists()) {
+            System.out.println("File exists.");
+        } else {
+            System.out.println("File does not exist.");
+        }
+    }
+}
+</code>
+</pre>
+                    
+                    <li><strong>Checking if a File is Readable:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+
+public class FileReadableExample {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        if (file.canRead()) {
+            System.out.println("File is readable.");
+        } else {
+            System.out.println("File is not readable.");
+        }
+    }
+}
+</code>
+</pre>
+                    
+                    <li><strong>Checking if a File is Writable:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+
+public class FileWritableExample {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        if (file.canWrite()) {
+            System.out.println("File is writable.");
+        } else {
+            System.out.println("File is not writable.");
+        }
+    }
+}
+</code>
+</pre>
+                    
+                    <li><strong>Deleting a File:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+
+public class FileDeletionExample {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        if (file.delete()) {
+            System.out.println("File deleted successfully.");
+        } else {
+            System.out.println("Failed to delete the file.");
+        }
+    }
+}
+</code>
+</pre>
+                    
+                    <li><strong>Renaming a File:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+
+public class FileRenameExample {
+    public static void main(String[] args) {
+        File oldFile = new File("old_name.txt");
+        File newFile = new File("new_name.txt");
+        
+        if (oldFile.renameTo(newFile)) {
+            System.out.println("File renamed successfully.");
+        } else {
+            System.out.println("Failed to rename the file.");
+        }
+    }
+}
+</code>
+</pre>
+                    
+                    <li><strong>Creating a Directory:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+
+public class DirectoryCreationExample {
+    public static void main(String[] args) {
+        File directory = new File("new_directory");
+        if (directory.mkdir()) {
+            System.out.println("Directory created successfully.");
+        } else {
+            System.out.println("Failed to create the directory.");
+        }
+    }
+}
+</code>
+</pre>
+                    
+                    <li><strong>Listing Files in a Directory:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+
+public class ListFilesExample {
+    public static void main(String[] args) {
+        File directory = new File("directory_path");
+        File[] files = directory.listFiles();
+        
+        if (files != null) {
+            for (File file : files) {
+                System.out.println(file.getName());
+            }
+        }
+    }
+}
+</code>
+</pre>
+                    
+                    <li><strong>Getting File Information:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+import java.text.SimpleDateFormat;
+
+public class FileInfoExample {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        
+        if (file.exists()) {
+            System.out.println("File name: " + file.getName());
+            System.out.println("Absolute path: " + file.getAbsolutePath());
+            System.out.println("Size: " + file.length() + " bytes");
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+            System.out.println("Last modified: " + sdf.format(file.lastModified()));
+        } else {
+            System.out.println("File does not exist.");
+        }
+    }
+}
+</code>
+</pre>
+                    
+                    <li><strong>Creating a File:</strong></li>
+                    <pre>
+<code>
+import java.io.File;
+import java.io.IOException;
+
+public class FileCreationExample {
+    public static void main(String[] args) {
+        File file = new File("new_file.txt");
+        
+        try {
+            if (file.createNewFile()) {
+                System.out.println("File created successfully.");
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+</pre>
+                    
+                </ul>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>

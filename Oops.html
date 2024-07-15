@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPs with Java - Java Programming Tutorials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #444;
+            overflow-x: auto;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Tutorials</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>Object-Oriented Programming (OOP) with Java</h2>
+            
+            <section id="encapsulation">
+                <h3>Encapsulation</h3>
+                <p>Explanation of encapsulation in OOP, its purpose, and benefits. Types of encapsulation: <strong>access modifiers (private, protected, public)</strong>. Ways to achieve encapsulation: <strong>using accessors (getters) and mutators (setters)</strong>. Example code demonstrating encapsulation in Java.</p>
+                <pre>
+<code>
+// Example demonstrating encapsulation
+public class Employee {
+    private String name;
+    private double salary;
+
+    public Employee(String empName, double empSalary) {
+        this.name = empName;
+        this.salary = empSalary;
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter for salary
+    public void setSalary(double salary) {
+        if (salary > 0) {
+            this.salary = salary;
+        }
+    }
+}
+</code>
+</pre>
+            </section>
+            
+            <section id="inheritance">
+                <h3>Inheritance</h3>
+                <p>Explanation of inheritance in OOP, its purpose, and benefits. Types of inheritance: <strong>single inheritance, multiple inheritance (using interfaces), hierarchical inheritance, multilevel inheritance</strong>. Ways to achieve inheritance: <strong>using extends keyword for classes, implementing interfaces</strong>. Example code demonstrating inheritance in Java.</p>
+                <pre>
+<code>
+// Example demonstrating inheritance
+// Parent class
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Child class inheriting from Animal
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+</code>
+</pre>
+            </section>
+            
+            <section id="polymorphism">
+                <h3>Polymorphism</h3>
+                <p>Explanation of polymorphism in OOP, its purpose, and benefits. Types of polymorphism: <strong>compile-time polymorphism (method overloading), runtime polymorphism (method overriding)</strong>. Ways to achieve polymorphism: <strong>method overloading, method overriding, interfaces</strong>. Example code demonstrating polymorphism in Java.</p>
+                <pre>
+<code>
+// Example demonstrating polymorphism
+// Method Overloading
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+// Method Overriding
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+</code>
+</pre>
+            </section>
+            
+            <section id="abstraction">
+                <h3>Abstraction</h3>
+                <p>Explanation of abstraction in OOP, its purpose, and benefits. Types of abstraction: <strong>abstract classes, interfaces</strong>. Ways to achieve abstraction: <strong>using abstract keyword, implementing interfaces</strong>. Example code demonstrating abstraction in Java.</p>
+                <pre>
+<code>
+// Example demonstrating abstraction
+// Abstract Class
+abstract class Shape {
+    abstract void draw(); // Abstract method
+}
+
+// Implementation
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+
+// Interface
+interface Drawable {
+    void draw();
+}
+
+// Implementation
+class Rectangle implements Drawable {
+    public void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+}
+</code>
+</pre>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>

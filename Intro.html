@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Java - Java Programming Tutorials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #444;
+            overflow-x: auto;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Tutorials</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>Introduction to Java</h2>
+            
+            <section id="class-object">
+                <h3>Class and Object</h3>
+                <p>In Java, a class is a blueprint or template for creating objects. An object is an instance of a class. Classes encapsulate data for the object and define methods to operate on that data.</p>
+            </section>
+            
+            <section id="basic-structure">
+                <h3>Basic Structure of a Java Program</h3>
+                <pre>
+<code>
+public class HelloWorld {
+    public static void main(String[] args) {
+        // Your Java code here
+    }
+}
+</code>
+</pre>
+                <p>A Java program starts with a class definition. The `main` method is the entry point where execution begins.</p>
+            </section>
+            
+            <section id="variables">
+                <h3>Variables</h3>
+                <p>Variables in Java are containers for storing data values. They have a data type and a name. Java supports different types of variables, such as:</p>
+                <ul>
+                    <li>Local variables</li>
+                    <li>Instance variables (non-static fields)</li>
+                    <li>Class variables (static fields)</li>
+                </ul>
+            </section>
+            
+            <section id="data-types">
+                <h3>Data Types</h3>
+                <p>Data types specify the type of data that variables can hold. Java supports various primitive data types:</p>
+                <ul>
+                    <li>byte</li>
+                    <li>short</li>
+                    <li>int</li>
+                    <li>long</li>
+                    <li>float</li>
+                    <li>double</li>
+                    <li>boolean</li>
+                    <li>char</li>
+                </ul>
+                <p>Java also supports non-primitive data types, which are not defined by the programming language but are instead created by the programmer. They include:</p>
+                <ul>
+                    <li>Classes</li>
+                    <li>Interfaces</li>
+                    <li>Arrays</li>
+                    <li>Strings</li>
+                    <li>Wrapper classes (e.g., Integer, Double)</li>
+                    <li>Enum types</li>
+                </ul>
+            </section>
+            
+            <section id="literals">
+                <h3>Literals</h3>
+                <p>Literals in Java represent fixed values that can be assigned to variables. Examples include numeric literals (e.g., `123`, `3.14`), character literals (e.g., `'A'`, `'B'`), and string literals (e.g., `"Hello"`, `"Java"`).</p>
+            </section>
+            
+            <section id="wrapper-classes">
+                <h3>Wrapper Classes</h3>
+                <p>Wrapper classes in Java are used to convert primitive data types into objects. They provide a way to work with primitive data types as objects. Benefits include:</p>
+                <ul>
+                    <li>Allowing null values</li>
+                    <li>Enabling generic programming with collections (e.g., ArrayList)</li>
+                    <li>Providing utility methods (e.g., parsing)</li>
+                </ul>
+            </section>
+            
+            <section id="operators">
+                <h3>Operators</h3>
+                <p>Operators in Java are symbols that perform operations on variables and values. They include:</p>
+                <ul>
+                    <li>Arithmetic operators (e.g., `+`, `-`, `*`, `/`, `%`)</li>
+                    <li>Comparison operators (e.g., `==`, `!=`, `>`, `<`, `>=`, `<=`)</li>
+                    <li>Logical operators (e.g., `&&`, `||`, `!`)</li>
+                    <li>Bitwise operators (e.g., `&`, `|`, `^`, `~`, `<<`, `>>`, `>>>`)</li>
+                    <li>Assignment operators (e.g., `=`, `+=`, `-=`, `*=`, `/=`)</li>
+                </ul>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>
